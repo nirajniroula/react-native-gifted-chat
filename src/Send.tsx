@@ -78,7 +78,7 @@ export default class Send extends Component<SendProps> {
       disabled,
       sendButtonProps,
     } = this.props
-    if (alwaysShowSend || (text && text.trim().length > 0)) {
+    if (alwaysShowSend) {
       return (
         <TouchableOpacity
           testID='send'
@@ -86,7 +86,7 @@ export default class Send extends Component<SendProps> {
           accessibilityLabel='send'
           style={[styles.container, containerStyle]}
           onPress={() => {
-            if (text && onSend) {
+            if (onSend) {
               onSend({ text: text.trim() }, true)
             }
           }}
